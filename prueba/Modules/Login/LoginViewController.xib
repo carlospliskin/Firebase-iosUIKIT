@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SuisseIntl-Regular.otf">
+            <string>SuisseIntl-Regular</string>
+        </array>
+        <array key="SuisseIntl-SemiBold.otf">
+            <string>SuisseIntl-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="xybooster" customModuleProvider="target">
+            <connections>
+                <outlet property="btnForgotPasswd" destination="MZz-Fg-WeM" id="AV0-Bm-eAf"/>
+                <outlet property="btnLogin" destination="zb4-m9-F8a" id="TtB-bi-ytG"/>
+                <outlet property="btnSingUp" destination="2Sy-zc-0dc" id="y9e-Z7-c1K"/>
+                <outlet property="imgLogoWhite" destination="YMv-NG-fhZ" id="Zl3-ff-Nq5"/>
+                <outlet property="lblAcountAsk" destination="WUX-ZX-Opq" id="Phv-xF-MRd"/>
+                <outlet property="lblWelcomeMsg" destination="fbi-qd-0JZ" id="oqM-cK-CeX"/>
+                <outlet property="tfMail" destination="jI2-4q-Wbg" id="bXg-4N-VAK"/>
+                <outlet property="tfPassword" destination="J8T-Tg-nF0" id="tsK-UG-pKW"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="GrandientColorView" customModule="xybooster" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.white" translatesAutoresizingMaskIntoConstraints="NO" id="YMv-NG-fhZ">
+                    <rect key="frame" x="81" y="102" width="231" height="57"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="57" id="6eS-dh-FCV"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienvenido" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbi-qd-0JZ">
+                    <rect key="frame" x="39" y="239" width="315" height="28.333333333333314"/>
+                    <fontDescription key="fontDescription" name="SuisseIntl-SemiBold" family="Suisse Intl" pointSize="25"/>
+                    <color key="textColor" name="Secundary"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zb4-m9-F8a">
+                    <rect key="frame" x="67" y="517.33333333333337" width="259" height="53"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="53" id="8fY-J4-dQO"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Iniciar sesión">
+                        <fontDescription key="titleFontDescription" name="SuisseIntl-SemiBold" family="Suisse Intl" pointSize="14"/>
+                        <color key="baseBackgroundColor" name="Accent"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="7TV-Ek-1OH"/>
+                    </connections>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="jDb-pG-AZP">
+                    <rect key="frame" x="30" y="317.33333333333331" width="333" height="128"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo electrónico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jI2-4q-Wbg" customClass="DesignableTextField" customModule="xybooster" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="333" height="50"/>
+                            <color key="backgroundColor" name="TextFieldBackground"/>
+                            <color key="tintColor" name="textfieldPlaceholder"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="aYh-zy-DHj"/>
+                            </constraints>
+                            <color key="textColor" name="textfieldPlaceholder"/>
+                            <fontDescription key="fontDescription" name="SuisseIntl-Regular" family="Suisse Intl" pointSize="15"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="ic.message"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J8T-Tg-nF0" customClass="DesignableTextField" customModule="xybooster" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="78" width="333" height="50"/>
+                            <color key="backgroundColor" name="TextFieldBackground"/>
+                            <color key="tintColor" name="textfieldPlaceholder"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="AON-2D-nmy"/>
+                            </constraints>
+                            <color key="textColor" name="textfieldPlaceholder"/>
+                            <fontDescription key="fontDescription" name="SuisseIntl-Regular" family="Suisse Intl" pointSize="15"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="ic.lock"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </textField>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZz-Fg-WeM">
+                    <rect key="frame" x="16" y="465.33333333333331" width="361" height="30"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="¿Olvidaste tu contraseña?">
+                        <fontDescription key="titleFontDescription" name="SuisseIntl-SemiBold" family="Suisse Intl" pointSize="14"/>
+                        <color key="baseForegroundColor" name="Accent"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="forgottenPasswordTapped:" destination="-1" eventType="touchUpInside" id="gBA-M4-Ebb"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Sy-zc-0dc">
+                    <rect key="frame" x="101" y="747.33333333333337" width="191" height="39"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="39" id="XUU-Sx-aqw"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Regístrate">
+                        <fontDescription key="titleFontDescription" name="SuisseIntl-Regular" family="Suisse Intl" pointSize="14"/>
+                        <color key="baseBackgroundColor" name="Accent"/>
+                    </buttonConfiguration>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿No tienes una cuenta?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUX-ZX-Opq">
+                    <rect key="frame" x="0.0" y="715.33333333333337" width="393" height="16"/>
+                    <fontDescription key="fontDescription" name="SuisseIntl-Regular" family="Suisse Intl" pointSize="14"/>
+                    <color key="textColor" name="Secundary"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="SecundaryBackground"/>
+            <constraints>
+                <constraint firstItem="2Sy-zc-0dc" firstAttribute="top" secondItem="WUX-ZX-Opq" secondAttribute="bottom" constant="16" id="0lM-lV-yLr"/>
+                <constraint firstItem="YMv-NG-fhZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="81" id="2TU-Aj-isI"/>
+                <constraint firstItem="MZz-Fg-WeM" firstAttribute="top" secondItem="jDb-pG-AZP" secondAttribute="bottom" constant="20" id="4QC-XE-DSK"/>
+                <constraint firstItem="zb4-m9-F8a" firstAttribute="top" secondItem="MZz-Fg-WeM" secondAttribute="bottom" constant="22" id="50O-wL-gv1"/>
+                <constraint firstItem="zb4-m9-F8a" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="67" id="6Cf-HB-vEs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MZz-Fg-WeM" secondAttribute="trailing" constant="16" id="6Mb-XW-Ld0"/>
+                <constraint firstItem="fbi-qd-0JZ" firstAttribute="top" secondItem="YMv-NG-fhZ" secondAttribute="bottom" constant="80" id="Ce2-zr-izC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jDb-pG-AZP" secondAttribute="trailing" constant="30" id="Gdo-sa-l5q"/>
+                <constraint firstItem="MZz-Fg-WeM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Lk9-6X-Dux"/>
+                <constraint firstItem="jDb-pG-AZP" firstAttribute="top" secondItem="fbi-qd-0JZ" secondAttribute="bottom" constant="50" id="WXH-33-wxa"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zb4-m9-F8a" secondAttribute="trailing" constant="67" id="WZJ-zz-dSW"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="2Sy-zc-0dc" secondAttribute="bottom" constant="31.670000000000002" id="Wi4-6e-Ada"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WUX-ZX-Opq" secondAttribute="trailing" id="gFD-EG-V5F"/>
+                <constraint firstItem="YMv-NG-fhZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="43" id="js9-ZO-Qow"/>
+                <constraint firstItem="jDb-pG-AZP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="mGR-ge-qAg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YMv-NG-fhZ" secondAttribute="trailing" constant="81" id="noP-3T-oF7"/>
+                <constraint firstItem="WUX-ZX-Opq" firstAttribute="top" secondItem="zb4-m9-F8a" secondAttribute="bottom" priority="120" constant="145" id="pvz-XV-mWR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2Sy-zc-0dc" secondAttribute="trailing" constant="101" id="q1T-nU-B5h"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fbi-qd-0JZ" secondAttribute="trailing" constant="39" id="toI-b5-y3a"/>
+                <constraint firstItem="fbi-qd-0JZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="39" id="w0X-be-xmu"/>
+                <constraint firstItem="2Sy-zc-0dc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="101" id="wOl-H5-Mpf"/>
+                <constraint firstItem="WUX-ZX-Opq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="zIt-eP-5YE"/>
+            </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                    <color key="value" name="PrimaryBackground"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                    <color key="value" name="SecundaryBackground"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalGrandient" value="NO"/>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="38.931297709923662" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="J8T-Tg-nF0">
+            <size key="intrinsicContentSize" width="159" height="34"/>
+        </designable>
+        <designable name="jI2-4q-Wbg">
+            <size key="intrinsicContentSize" width="207.66666666666666" height="34"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="ic.lock" width="24" height="24"/>
+        <image name="ic.message" width="24" height="24"/>
+        <image name="logo.white" width="737" height="158"/>
+        <namedColor name="Accent">
+            <color red="0.89200001955032349" green="0.1080000028014183" blue="0.1379999965429306" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryBackground">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Secundary">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecundaryBackground">
+            <color red="0.062745098039215685" green="0.062745098039215685" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextFieldBackground">
+            <color red="0.10599999874830246" green="0.10599999874830246" blue="0.10599999874830246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textfieldPlaceholder">
+            <color red="0.52499997615814209" green="0.52499997615814209" blue="0.52499997615814209" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
