@@ -22,11 +22,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.navigationItem.setHidesBackButton(true, animated: true)
-//        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
-//        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-//        self.navigationItem.backBarButtonItem?.tintColor = .black
-//        btnSingUp.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+
     }
 
     @objc func signUpButtonTapped() {
