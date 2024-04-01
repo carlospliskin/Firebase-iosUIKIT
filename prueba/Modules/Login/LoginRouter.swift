@@ -26,7 +26,7 @@ class LoginRouter {
 
 extension LoginRouter: LoginRouterProtocol {
     func navigateToChat() {
-        let chatViewController = ChatRouter.setupModule()
+        let chatViewController = HomeRouter.setupModule()
         viewController?.navigationController?.pushViewController(chatViewController, animated: true)
     }
 }

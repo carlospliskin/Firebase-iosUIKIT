@@ -37,6 +37,12 @@
 		7A0938D62BBA943A000D7A29 /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A71FC152BBA8FAA00A467D5 /* LoginProtocols.swift */; };
 		7A0938D72BBA943A000D7A29 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A71FC192BBA8FAA00A467D5 /* LoginPresenter.swift */; };
 		7A0938D82BBA943A000D7A29 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A71FC162BBA8FAA00A467D5 /* LoginRouter.swift */; };
+		7A0938DF2BBA9708000D7A29 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0938DA2BBA9708000D7A29 /* HomePresenter.swift */; };
+		7A0938E02BBA9708000D7A29 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0938DB2BBA9708000D7A29 /* HomeRouter.swift */; };
+		7A0938E22BBA9708000D7A29 /* HomeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0938DD2BBA9708000D7A29 /* HomeProtocols.swift */; };
+		7A0938E32BBA9708000D7A29 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0938DE2BBA9708000D7A29 /* HomeInteractor.swift */; };
+		7A0938E62BBA9732000D7A29 /* HomeRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0938E42BBA9732000D7A29 /* HomeRViewController.swift */; };
+		7A0938E72BBA9732000D7A29 /* HomeRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A0938E52BBA9732000D7A29 /* HomeRViewController.xib */; };
 		7AD8B93C2BB289520053D125 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8B93B2BB289520053D125 /* AppDelegate.swift */; };
 		7AD8B93E2BB289520053D125 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8B93D2BB289520053D125 /* SceneDelegate.swift */; };
 		7AD8B9402BB289520053D125 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8B93F2BB289520053D125 /* ViewController.swift */; };
@@ -52,6 +58,12 @@
 
 /* Begin PBXFileReference section */
 		7A0938A22BBA930B000D7A29 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7A0938DA2BBA9708000D7A29 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		7A0938DB2BBA9708000D7A29 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		7A0938DD2BBA9708000D7A29 /* HomeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocols.swift; sourceTree = "<group>"; };
+		7A0938DE2BBA9708000D7A29 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		7A0938E42BBA9732000D7A29 /* HomeRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRViewController.swift; sourceTree = "<group>"; };
+		7A0938E52BBA9732000D7A29 /* HomeRViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeRViewController.xib; sourceTree = "<group>"; };
 		7A71FC152BBA8FAA00A467D5 /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
 		7A71FC162BBA8FAA00A467D5 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		7A71FC172BBA8FAA00A467D5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -107,9 +119,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A0938D92BBA96F8000D7A29 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7A0938DA2BBA9708000D7A29 /* HomePresenter.swift */,
+				7A0938DB2BBA9708000D7A29 /* HomeRouter.swift */,
+				7A0938DD2BBA9708000D7A29 /* HomeProtocols.swift */,
+				7A0938DE2BBA9708000D7A29 /* HomeInteractor.swift */,
+				7A0938E42BBA9732000D7A29 /* HomeRViewController.swift */,
+				7A0938E52BBA9732000D7A29 /* HomeRViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		7A71FC132BBA8FA300A467D5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7A0938D92BBA96F8000D7A29 /* Home */,
 				7AD8B9642BB289FD0053D125 /* chat */,
 				7A71FC142BBA8FAA00A467D5 /* Login */,
 			);
@@ -278,6 +304,7 @@
 				7AD8B9482BB289550053D125 /* LaunchScreen.storyboard in Resources */,
 				7AD8B9452BB289550053D125 /* Assets.xcassets in Resources */,
 				7AD8B9722BB28BB80053D125 /* ChatViewController.xib in Resources */,
+				7A0938E72BBA9732000D7A29 /* HomeRViewController.xib in Resources */,
 				7A0938A32BBA930B000D7A29 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,9 +317,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A0938D32BBA943A000D7A29 /* LoginInteractor.swift in Sources */,
+				7A0938E32BBA9708000D7A29 /* HomeInteractor.swift in Sources */,
 				7A0938D42BBA943A000D7A29 /* LoginViewController.xib in Sources */,
 				7A0938D52BBA943A000D7A29 /* LoginViewController.swift in Sources */,
+				7A0938E22BBA9708000D7A29 /* HomeProtocols.swift in Sources */,
+				7A0938E62BBA9732000D7A29 /* HomeRViewController.swift in Sources */,
+				7A0938DF2BBA9708000D7A29 /* HomePresenter.swift in Sources */,
 				7A0938D62BBA943A000D7A29 /* LoginProtocols.swift in Sources */,
+				7A0938E02BBA9708000D7A29 /* HomeRouter.swift in Sources */,
 				7A0938D72BBA943A000D7A29 /* LoginPresenter.swift in Sources */,
 				7A0938D82BBA943A000D7A29 /* LoginRouter.swift in Sources */,
 				7AD8B9402BB289520053D125 /* ViewController.swift in Sources */,
