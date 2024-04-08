@@ -13,8 +13,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let isFirstLaunch = UserDefaults.standard.bool(forKey: "isFirstLaunch")
+        if !isFirstLaunch {
+            clearKeychain()
+            
+            UserDefaults.standard.set(true, forKey: "isFirstLaunch")
+        }
         FirebaseApp.configure()
         return true
+    }
+    
+    private func clearKeychain() {
+        let secItemClasses =  [
+            kSecClassGenericPassword,
+            kSecClassInternetPassword,
+            kSecClassCertificate,
+            kSecClassKey,
+            kSecClassIdentity
+        ]
+        
+        for secItemClass in secItemClasses {
+            let query = [kSecClass as String: secItemClass]
+            SecItemDelete(query as CFDictionary)
+        }
     }
     
     // MARK: UISceneSession Lifecycle

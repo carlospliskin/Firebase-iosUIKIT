@@ -68,8 +68,7 @@ class LoginViewController: UIViewController {
     @IBAction func rememberPasswordButtonTapped() {
         isRememberingPassword.toggle()
         updateRememberPasswordButtonTitle()
-        updateTextfieldTextColor()
-        print("Botón de recordar presionado")
+        saveOrDeletePasswordInKeychain()
     }
     
     // MARK: - Private Methods
@@ -84,17 +83,24 @@ class LoginViewController: UIViewController {
     }
     
     private func handleRememberPassword() {
+        saveOrDeletePasswordInKeychain()
+    }
+    
+    private func saveOrDeletePasswordInKeychain() {
         if isRememberingPassword {
             savePasswordToKeychain()
         } else {
-            deletePasswordFromKeychain()
+            deleteCredentialsFromKeychain()
         }
     }
     
     private func savePasswordToKeychain() {
         guard let password = tfPassword.text, let email = tfMail.text else { return }
         
-        // Guardar la contraseña en el Keychain
+        // Eliminar tanto el correo electrónico como la contraseña existentes
+        deleteCredentialsFromKeychain()
+        
+        // Guardar la nueva contraseña en el Keychain
         let passwordData = password.data(using: .utf8)!
         let passwordQuery: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
@@ -103,11 +109,11 @@ class LoginViewController: UIViewController {
         ]
         let passwordStatus = SecItemAdd(passwordQuery as CFDictionary, nil)
         guard passwordStatus == errSecSuccess else {
-            print("Error saving password to Keychain")
+            print("Error saving password to Keychain: \(passwordStatus)")
             return
         }
         print("Password saved to Keychain")
-
+        
         // Guardar el correo electrónico en el Keychain
         let emailData = email.data(using: .utf8)!
         let emailQuery: [String: Any] = [
@@ -117,23 +123,66 @@ class LoginViewController: UIViewController {
         ]
         let emailStatus = SecItemAdd(emailQuery as CFDictionary, nil)
         guard emailStatus == errSecSuccess else {
-            print("Error saving email to Keychain")
+            print("Error saving email to Keychain: \(emailStatus)")
             return
         }
         print("Email saved to Keychain")
     }
-    
-    private func deletePasswordFromKeychain() {
-        let query: [String: Any] = [
+
+
+    private func retrieveSavedCredentialsFromKeychain() {
+        // Retrieve saved password data from Keychain
+        guard let savedPasswordData = getPasswordFromKeychain() else {
+            return
+        }
+        
+        // Convert saved password data to string
+        guard let savedPassword = String(data: savedPasswordData, encoding: .utf8) else {
+            return
+        }
+        
+        // Set the retrieved password to the password text field
+        tfPassword.text = savedPassword
+        
+        // Retrieve saved email data from Keychain
+        guard let savedEmailData = getEmailFromKeychain() else {
+            return
+        }
+        
+        // Convert saved email data to string
+        guard let savedEmail = savedEmailData as? String else {
+            return
+        }
+        
+        // Set the retrieved email to the email text field
+        tfMail.text = savedEmail
+    }
+
+
+    private func deleteCredentialsFromKeychain() {
+        // Eliminar la contraseña del Keychain
+        let passwordQuery: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: "userPassword"
         ]
-        let status = SecItemDelete(query as CFDictionary)
-        guard status == errSecSuccess || status == errSecItemNotFound else {
+        let passwordStatus = SecItemDelete(passwordQuery as CFDictionary)
+        guard passwordStatus == errSecSuccess || passwordStatus == errSecItemNotFound else {
             print("Error deleting password from Keychain")
             return
         }
         print("Password deleted from Keychain")
+        
+        // Eliminar el correo electrónico del Keychain
+        let emailQuery: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrAccount as String: "userEmail"
+        ]
+        let emailStatus = SecItemDelete(emailQuery as CFDictionary)
+        guard emailStatus == errSecSuccess || emailStatus == errSecItemNotFound else {
+            print("Error deleting email from Keychain")
+            return
+        }
+        print("Email deleted from Keychain")
     }
     
     private func showAlert(message: String) {
@@ -147,28 +196,6 @@ class LoginViewController: UIViewController {
         let buttonTitle = isRememberingPassword ? "Desmarcar" : "Recordar"
         btnRememberPassword.setTitle(buttonTitle, for: .normal)
         print ("estoy marcado")
-    }
-    
-    private func updateTextfieldTextColor() {
-        tfMail.textColor = isRememberingPassword ? .systemPink : .black
-        tfPassword.textColor = isRememberingPassword ? .systemPink : .black
-    }
-    
-    private func retrieveSavedCredentialsFromKeychain() {
-        // Recupera la contraseña del Keychain
-        guard let savedPasswordData = getPasswordFromKeychain() else {
-            // No se encontraron credenciales guardadas en el Keychain
-            return
-        }
-        
-        guard let savedPassword = String(data: savedPasswordData, encoding: .utf8) else {
-            // No se pudo convertir la data del password del Keychain a String
-            return
-        }
-        
-        // Establecer el email y contraseña recuperados en los campos de texto
-        tfMail.text = getEmailFromKeychain()
-        tfPassword.text = savedPassword
     }
     
     private func getPasswordFromKeychain() -> Data? {
@@ -189,19 +216,30 @@ class LoginViewController: UIViewController {
         
         return item as? Data
     }
+    
     private func getEmailFromKeychain() -> String? {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: "userEmail",
-            kSecReturnAttributes as String: true,
+            kSecReturnData as String: true,
             kSecMatchLimit as String: kSecMatchLimitOne
         ]
         
         var item: CFTypeRef?
         let status = SecItemCopyMatching(query as CFDictionary, &item)
         
-        guard status == errSecSuccess, let existingItem = item as? [String: Any], let email = existingItem[kSecAttrAccount as String] as? String else {
+        guard status == errSecSuccess else {
             print("Error retrieving email from Keychain")
+            return nil
+        }
+        
+        guard let data = item as? Data else {
+            print("Error converting retrieved data to Data")
+            return nil
+        }
+        
+        guard let email = String(data: data, encoding: .utf8) else {
+            print("Error converting data to String")
             return nil
         }
         
